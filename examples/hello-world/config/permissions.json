@@ -1,0 +1,9 @@
+{
+  "api": [],
+  "resources": ["stdout", "stderr"],
+  "network": false,
+  "filesystem": {
+    "read": ["./content"],
+    "write": []
+  }
+}

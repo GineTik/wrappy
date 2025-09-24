@@ -1,0 +1,21 @@
+{
+  "name": "node-18",
+  "version": "18.17.0",
+  "description": "Node.js runtime version 18 package",
+  "author": "Containers System",
+  "tags": ["runtime", "javascript", "node"],
+  "type": "package",
+  "scripts": {
+    "default": "./scripts/node.sh"
+  },
+  "dependencies": [],
+  "permissions": {
+    "api": [],
+    "resources": ["filesystem", "stdout", "stderr"]
+  },
+  "environment": {},
+  "exports": {
+    "node": "./bin/node",
+    "npm": "./bin/npm"
+  }
+}

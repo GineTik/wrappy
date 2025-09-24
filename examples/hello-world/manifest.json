@@ -1,0 +1,19 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "Простий приклад контейнера з привітанням",
+  "author": "Example Author",
+  "tags": ["example", "demo"],
+  "scripts": {
+    "default": "./scripts/default.sh",
+    "english": "./scripts/english.sh"
+  },
+  "dependencies": ["node-18@18.17.0"],
+  "permissions": {
+    "api": [],
+    "resources": ["stdout"]
+  },
+  "environment": {
+    "MESSAGE": "Привіт, світ!"
+  }
+}
