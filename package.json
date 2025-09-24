@@ -1,5 +1,5 @@
 {
-  "name": "containers-system",
+  "name": "wrappy",
   "version": "0.1.0",
   "description": "Container-based file system abstraction",
   "main": "src/index.js",

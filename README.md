@@ -1,4 +1,4 @@
-# Containers System
+# Wrappy - Containers System
 
 Система контейнерної абстракції файлової системи - новий підхід до взаємодії з додатками та файлами через контейнери.
 
@@ -54,4 +54,4 @@ my-app/
 │   ├── permissions.json
 │   └── environment.json
 └── dependencies.json  # Залежності
-```# wrappy
+```
