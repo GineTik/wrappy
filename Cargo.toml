@@ -1,0 +1,32 @@
+[package]
+name = "wrappy"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "Container file system abstraction - a new approach to interacting with applications and files through isolated containers"
+license = "MIT"
+repository = "https://github.com/user/wrappy"
+keywords = ["containers", "filesystem", "isolation", "security"]
+categories = ["filesystem", "virtualization"]
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+clap = { version = "4.0", features = ["derive"] }
+tokio = { version = "1.0", features = ["full"] }
+thiserror = "1.0"
+uuid = { version = "1.0", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+
+[dev-dependencies]
+tempfile = "3.0"
+assert_matches = "1.5"
+tokio-test = "0.4"
+
+[[bin]]
+name = "wrappy"
+path = "src/main.rs"
+
+[lib]
+name = "wrappy"
+path = "src/lib.rs"
