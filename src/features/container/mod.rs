@@ -4,8 +4,8 @@ use std::path::{Path, PathBuf};
 use uuid::Uuid;
 use chrono::{DateTime, Utc};
 
-use crate::core::{ContainerManifest, ContainerType, Version};
-use crate::error::{ContainerError, ContainerResult};
+use crate::features::{ContainerManifest, ContainerType, Version};
+use crate::shared::error::{ContainerError, ContainerResult};
 
 /// Tracks container lifecycle for execution monitoring and user feedback.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]

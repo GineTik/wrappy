@@ -1,0 +1,7 @@
+{
+  "variables": {
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "HOME": "/home/container"
+  },
+  "secrets": []
+}

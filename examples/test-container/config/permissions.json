@@ -1,0 +1,9 @@
+{
+  "filesystem": {
+    "read": ["/usr/lib", "/etc"],
+    "write": ["/tmp"]
+  },
+  "network": {
+    "allowed_ports": [80, 443]
+  }
+}

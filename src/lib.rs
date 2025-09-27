@@ -1,5 +1,5 @@
-pub mod core;
-pub mod error;
+pub mod features;
+pub mod shared;
 
-pub use core::*;
-pub use error::*;
+pub use features::*;
+pub use shared::*;

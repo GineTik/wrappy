@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 use std::fmt;
 use std::str::FromStr;
 
-use crate::error::{ContainerError, ContainerResult};
+use crate::shared::error::{ContainerError, ContainerResult};
 
 /// Semantic version for containers following semver format (major.minor.patch)
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]

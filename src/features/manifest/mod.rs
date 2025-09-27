@@ -2,8 +2,8 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::path::Path;
 
-use crate::core::Version;
-use crate::error::{ContainerError, ContainerResult};
+use crate::features::Version;
+use crate::shared::error::{ContainerError, ContainerResult};
 
 /// Defines container category for isolation and deployment strategies.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
