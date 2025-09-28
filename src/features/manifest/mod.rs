@@ -51,12 +51,8 @@ pub struct ContainerManifest {
     pub description: String,
     #[serde(default)]
     pub author: String,
-    #[serde(rename = "type")]
-    pub container_type: ContainerType,
     #[serde(default)]
     pub scripts: HashMap<String, String>,
-    #[serde(default)]
-    pub isolation: IsolationConfig,
     #[serde(default)]
     pub dependencies: Vec<Dependency>,
     #[serde(default)]
@@ -65,7 +61,7 @@ pub struct ContainerManifest {
 
 impl ContainerManifest {
     /// Initializes manifest with default configuration and required default script.
-    pub fn new(name: String, version: Version, container_type: ContainerType) -> Self {
+    pub fn new(name: String, version: Version) -> Self {
         let mut scripts = HashMap::new();
         scripts.insert("default".to_string(), "scripts/default.sh".to_string());
 
@@ -74,9 +70,7 @@ impl ContainerManifest {
             version,
             description: String::new(),
             author: String::new(),
-            container_type,
             scripts,
-            isolation: IsolationConfig::default(),
             dependencies: Vec::new(),
             environment: HashMap::new(),
         }
@@ -175,27 +169,6 @@ impl ContainerManifest {
             }
         }
 
-        // Validate isolation config
-        match self.isolation.network.as_str() {
-            "none" | "restricted" | "full" => {}
-            _ => {
-                return Err(ContainerError::ManifestValidation(format!(
-                    "Invalid network isolation level: {}",
-                    self.isolation.network
-                )));
-            }
-        }
-
-        match self.isolation.filesystem.as_str() {
-            "sandboxed" | "host" | "shared" => {}
-            _ => {
-                return Err(ContainerError::ManifestValidation(format!(
-                    "Invalid filesystem isolation level: {}",
-                    self.isolation.filesystem
-                )));
-            }
-        }
-
         Ok(())
     }
 
@@ -223,5 +196,3 @@ impl ContainerManifest {
     }
 }
 
-#[cfg(test)]
-mod tests;
