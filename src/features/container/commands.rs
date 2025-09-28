@@ -1,10 +1,9 @@
-use clap::{parser, subcommand};
+use clap::Subcommand;
 use std::env;
-use std::path::pathbuf;
-use clap::{Subcommand};
+use std::path::PathBuf;
 
-use crate::features::container::{container, containerservice};
-use crate::shared::error::containererror;
+use crate::features::container::{Container, ContainerService};
+use crate::shared::error::ContainerError;
 
 #[derive(Subcommand)]
 pub enum ContainerCommands {
@@ -25,7 +24,7 @@ pub struct ContainerHandler;
 impl ContainerHandler {
 
     /// Routes and executes the appropriate command
-    fn execute_command(command: ContainerCommands) -> i32 {
+    pub fn execute_command(command: ContainerCommands) -> i32 {
         match command {
             ContainerCommands::Validate { path, verbose } => {
                 Self::handle_validate_command(path, verbose)

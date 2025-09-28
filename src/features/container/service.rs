@@ -92,7 +92,10 @@ impl ContainerService {
     /// Validates that path exists and is a directory
     fn validate_path_exists(path: &PathBuf) -> ContainerResult<()> {
         if !path.exists() {
-            return Err(ContainerError::InvalidPath { path: path.clone() });
+            return Err(ContainerError::InvalidPath { 
+                path: path.clone(), 
+                reason: "Path does not exist".to_string() 
+            });
         }
 
         if !path.is_dir() {

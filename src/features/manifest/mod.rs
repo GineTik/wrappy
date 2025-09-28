@@ -3,6 +3,7 @@ use std::collections::HashMap;
 use std::path::Path;
 
 use crate::features::Version;
+use crate::features::bindings::BindingsConfig;
 use crate::shared::error::{ContainerError, ContainerResult};
 
 /// Defines container category for isolation and deployment strategies.
@@ -57,6 +58,8 @@ pub struct ContainerManifest {
     pub dependencies: Vec<Dependency>,
     #[serde(default)]
     pub environment: HashMap<String, String>,
+    #[serde(default)]
+    pub bindings: BindingsConfig,
 }
 
 impl ContainerManifest {
@@ -73,6 +76,7 @@ impl ContainerManifest {
             scripts,
             dependencies: Vec::new(),
             environment: HashMap::new(),
+            bindings: BindingsConfig::new(),
         }
     }
 

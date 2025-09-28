@@ -57,8 +57,8 @@ pub enum ContainerError {
         source: serde_json::Error,
     },
 
-    #[error("Invalid file path: {path}")]
-    InvalidPath { path: PathBuf },
+    #[error("Invalid file path: {path} - {reason}")]
+    InvalidPath { path: PathBuf, reason: String },
 
     #[error("Unsupported container type: {container_type}")]
     UnsupportedType { container_type: String },
