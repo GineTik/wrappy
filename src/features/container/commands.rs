@@ -1,23 +1,13 @@
-use clap::{Parser, Subcommand};
+use clap::{parser, subcommand};
 use std::env;
-use std::path::PathBuf;
+use std::path::pathbuf;
+use clap::{Subcommand};
 
-use crate::features::container::{Container, ContainerService};
-use crate::shared::error::ContainerError;
-
-#[derive(Parser)]
-#[command(
-    name = "wrappy",
-    about = "Container file system abstraction - manage isolated application environments",
-    version = env!("CARGO_PKG_VERSION")
-)]
-pub struct Cli {
-    #[command(subcommand)]
-    pub command: Commands,
-}
+use crate::features::container::{container, containerservice};
+use crate::shared::error::containererror;
 
 #[derive(Subcommand)]
-pub enum Commands {
+pub enum ContainerCommands {
     /// Validate container structure in the current or specified directory
     Validate {
         /// Directory path to validate (defaults to current directory)
@@ -30,20 +20,14 @@ pub enum Commands {
     },
 }
 
-/// Container commands controller that handles CLI interactions for container operations
-pub struct ContainerCommands;
+pub struct ContainerHandler;
 
-impl ContainerCommands {
-    /// Executes the CLI application with provided arguments
-    pub fn run() -> i32 {
-        let cli = Cli::parse();
-        Self::execute_command(cli.command)
-    }
+impl ContainerHandler {
 
     /// Routes and executes the appropriate command
-    fn execute_command(command: Commands) -> i32 {
+    fn execute_command(command: ContainerCommands) -> i32 {
         match command {
-            Commands::Validate { path, verbose } => {
+            ContainerCommands::Validate { path, verbose } => {
                 Self::handle_validate_command(path, verbose)
             }
         }
