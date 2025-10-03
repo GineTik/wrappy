@@ -21,6 +21,14 @@
 
 **Винятки:** README.md та інші markdown файли можуть бути українською для кращого розуміння концепції.
 
+## Documentation
+
+All docs contains in the docs/ folder:
+- Concept - [docs/concept.md]
+- Bindings - [docs/bindings.md]
+- Manifest description - [docs/manifest.md]
+- Architecture description - [docs/architecture.md]
+
 ## Architecture and file structure
 
 Проєкт має 2 основних вхідних файли:
